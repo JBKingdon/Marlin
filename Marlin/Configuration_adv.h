@@ -66,21 +66,21 @@
 #define TEMP_SENSOR_AD595_OFFSET 0.0
 #define TEMP_SENSOR_AD595_GAIN   1.0
 
-//This is for controlling a fan to cool down the stepper drivers
+//This is for controlling a fan to cool down the stepper drivers XXX JBK this would be nice to have
 //it will turn on when any driver is enabled
 //and turn off after the set amount of seconds from last driver being disabled again
 #define CONTROLLERFAN_PIN -1 //Pin used for the fan to cool controller (-1 to disable)
 #define CONTROLLERFAN_SECS 60 //How many seconds, after all motors were disabled, the fan should run
 #define CONTROLLERFAN_SPEED 255  // == full speed
 
-// When first starting the main fan, run it at full speed for the
+// When first starting the main fan, run it at full speed for the	// XXX JBK might be useful
 // given number of milliseconds.  This gets the fan spinning reliably
 // before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
 //#define FAN_KICKSTART_TIME 100
 
 // @section extruder
 
-// Extruder cooling fans
+// Extruder cooling fans	// XXX JBK nice to have
 // Configure fan pin outputs to automatically turn on/off when the associated
 // extruder temperature is above/below EXTRUDER_AUTO_FAN_TEMPERATURE.
 // Multiple extruders can be assigned to the same pin in which case
@@ -105,7 +105,7 @@
 
 //#define Z_LATE_ENABLE // Enable Z the last moment. Needed if your Z driver overheats.
 
-// A single Z stepper driver is usually used to drive 2 stepper motors.
+// A single Z stepper driver is usually used to drive 2 stepper motors.		// XXX JBK try this
 // Uncomment this define to utilize a separate stepper driver for each Z axis motor.
 // Only a few motherboards support this, like RAMPS, which have dual extruder support (the 2nd, often unused, extruder driver is used
 // to control the 2nd Z axis stepper motor). The pins are currently only defined for a RAMPS motherboards.
@@ -210,7 +210,7 @@
 #define INVERT_Z_STEP_PIN false
 #define INVERT_E_STEP_PIN false
 
-// Default stepper release if idle. Set to 0 to deactivate.
+// Default stepper release if idle. Set to 0 to deactivate.	// XXX JBK bump this up while testing?
 #define DEFAULT_STEPPER_DEACTIVE_TIME 60
 
 #define DEFAULT_MINIMUMFEEDRATE       0.0     // minimum feedrate
@@ -220,7 +220,7 @@
 
 #ifdef ULTIPANEL
   #define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60} // Feedrates for manual moves along X, Y, Z, E from panel
-  #define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder
+  #define ULTIPANEL_FEEDMULTIPLY  // Comment to disable setting feedrate multiplier via encoder // XXX JBK not sure this is a good idea - too easy to mess with?
 #endif
 
 // @section extras
@@ -328,7 +328,7 @@
 
 // @section extruder
 
-// extruder advance constant (s2/mm3)
+// extruder advance constant (s2/mm3)	// XXX JBK Try this!
 //
 // advance (steps) = STEPS_PER_CUBIC_MM_E * EXTRUDER_ADVANCE_K * cubic mm per second ^ 2
 //
@@ -365,7 +365,7 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 // The number of linear motions that can be in the plan at any give time.
 // THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2, i.g. 8,16,32 because shifts and ors are used to do the ring-buffering.
 #ifdef SDSUPPORT
-  #define BLOCK_BUFFER_SIZE 16   // SD,LCD,Buttons take more memory, block buffer needs to be smaller
+  #define BLOCK_BUFFER_SIZE 16   // SD,LCD,Buttons take more memory, block buffer needs to be smaller // XXX JBK worth trying bigger?
 #else
   #define BLOCK_BUFFER_SIZE 16 // maximize block buffer
 #endif
